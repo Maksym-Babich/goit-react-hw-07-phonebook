@@ -1,24 +1,21 @@
 import PropTypes from 'prop-types';
-// import { remove } from 'redux/contactsSlice';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { deleteContact } from 'redux/operations';
 import {
   ContactItem,
   Delete,
 } from 'components/Contacts/Contact/Contact.styled';
 
 export function Contact({ content, id }) {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  const onContactDelete = evt => {
-    // dispatch(remove(evt.target.dataset.id));
+  const onContactDelete = () => {
+    dispatch(deleteContact(id));
   };
 
   return (
     <ContactItem>
-      {content}{' '}
-      <Delete data-id={id} onClick={onContactDelete}>
-        Delete
-      </Delete>
+      {content} <Delete onClick={onContactDelete}>Delete</Delete>
     </ContactItem>
   );
 }

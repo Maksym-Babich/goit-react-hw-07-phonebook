@@ -24,18 +24,20 @@ export function App() {
         <Form />
         <Section title="Contacts">
           <Search />
-          {isLoading && !error && (
-            <ColorRing
-              visible={true}
-              height="80"
-              width="80"
-              ariaLabel="blocks-loading"
-              wrapperStyle={{}}
-              wrapperClass="blocks-wrapper"
-              colors={['#000']}
-            />
-          )}
-          <Contacts></Contacts>
+
+          <Contacts>
+            {isLoading && !error && (
+              <ColorRing
+                visible={true}
+                height="80"
+                width="80"
+                ariaLabel="blocks-loading"
+                wrapperStyle={{}}
+                wrapperClass="blocks-wrapper"
+                colors={['#000']}
+              />
+            )}
+          </Contacts>
         </Section>
       </SectionMain>
     </>
